@@ -10,7 +10,7 @@ static sf::CircleShape gHexagon(50.0f, 6);
 void Game::Initialize()
 {
 	gHexagon.setOrigin(50.0f, 50.0f);
-	gHexagon.setPosition(m_renderWindow.getSize().x / 2, m_renderWindow.getSize().y / 2);
+	gHexagon.setPosition(m_renderWindow.getSize().x / 2.0f, m_renderWindow.getSize().y / 2.0f);
 }
 
 void Game::KeyPressed(sf::Keyboard::Key _keyCode)
