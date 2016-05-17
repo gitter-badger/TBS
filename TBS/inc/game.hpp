@@ -5,10 +5,10 @@
 class Game
 {
 public:
-	// Constructors
+	// Constructor
 	Game(sf::RenderWindow &_renderWindow);
 
-	// Input events
+public: //Input events
 	void KeyPressed(sf::Keyboard::Key);
 	void KeyReleased(sf::Keyboard::Key);
 	void MouseMove(int _x, int _y);
