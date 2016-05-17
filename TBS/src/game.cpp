@@ -46,7 +46,7 @@ void Game::MouseMove(int _x, int _y)
 	m_mousePosition.y = _y;
 }
 
-void Game::MouseDown(sf::Mouse::Button _button, int _x, int _y)
+void Game::MouseDown(sf::Mouse::Button _button, int, int)
 {
 	// Switch on the pressed button
 	switch (_button)
@@ -62,7 +62,7 @@ void Game::MouseDown(sf::Mouse::Button _button, int _x, int _y)
 }
 
 void Game::MouseUp
-(sf::Mouse::Button _button, int _x, int _y)
+(sf::Mouse::Button _button, int, int)
 {
 	// Switch on the released button
 	switch (_button)
@@ -77,7 +77,7 @@ void Game::MouseUp
 	}
 }
 
-void Game::MouseWheelScrolled(int _delta)
+void Game::MouseWheelScrolled(int)
 {
 
 }

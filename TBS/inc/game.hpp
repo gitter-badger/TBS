@@ -18,7 +18,7 @@ public:
 
 	// Methods
 	void Initialize();                // Called to initialize the game
-	void Tick(float _deltaSeconds); // Do the game logic
+	void Tick(float _deltaSeconds);   // Do the game logic
 	void Render();                    // Render method
 
 private:
