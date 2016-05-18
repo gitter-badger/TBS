@@ -92,9 +92,11 @@
   <ItemGroup>
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\rtsgame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\game.hpp" />
+    <ClInclude Include="inc\rtsgame.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

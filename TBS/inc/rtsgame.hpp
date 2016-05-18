@@ -2,19 +2,10 @@
 
 #include <SFML/Graphics.hpp>
 
-// Pimpl
-class RTSGame;
-
-/**
- * Game Interface
- */
-class IGame
+class RTSGame
 {
-public: // Constructors and destructor
-	IGame(sf::RenderWindow &_renderWindow);
-	IGame(IGame&) = default;
-	IGame& operator=(IGame&) = default;
-	virtual ~IGame() = default;
+public:
+	RTSGame(sf::RenderWindow &_renderWindow);
 
 public: //Input events
 	void KeyPressed(sf::Keyboard::Key);
@@ -29,6 +20,8 @@ public: // Methods
 	void Tick(float _deltaSeconds);
 	void Render();
 
-private:
-	RTSGame *m_imp;                            // The game class handling the logic
+private: // Data members
+	float m_totalSeconds;                      // Seconds passed since startup
+	sf::RenderWindow &m_renderWindow;          // The window
+	sf::ConvexShape m_hexagon;                 // A simple hexagon shape
 };

@@ -11,7 +11,7 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(800, 600), title, 7U, settings);
 
 	// Create an instance of a game
-	Game game(window);
+	IGame game(window);
 	game.Initialize();
 
 	// Clock used to get the delta-time

@@ -19,9 +19,15 @@
     <ClCompile Include="src\game.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\rtsgame.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\game.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\rtsgame.hpp">
       <Filter>inc</Filter>
     </ClInclude>
   </ItemGroup>
