@@ -1,6 +1,7 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include <cstdio>
+#include <utility>
 #include "localization.hpp"
 #include "rtsgame.hpp"
 
@@ -30,20 +31,31 @@ void RTSGame::Initialize()
 	m_txtFPS.setColor(sf::Color::White);
 	m_txtFPS.setPosition(10.0f, 10.0f);
 
-	// Create hexagon
-	constexpr const float radius = 150.0f;
-	constexpr const float outlineThickness = 10.0f;
-	m_hexagon.setPointCount(6);
-	for (size_t i = 0; i < m_hexagon.getPointCount(); i++)
+	// Create single hexagon
+	constexpr float radius = 50.0f;
+	constexpr float outlineThickness = 2.0f;
+	sf::ConvexShape hexagon(6);
+	for (size_t i = 0; i < hexagon.getPointCount(); i++)
 	{
-		const float x = std::cosf((float)M_PI * 2 / m_hexagon.getPointCount() * i) * radius;
-		const float y = std::sinf((float)M_PI * 2 / m_hexagon.getPointCount() * i) * radius;
-		m_hexagon.setPoint(i, sf::Vector2f(x, y));
+		const float x = std::cosf((float)(M_PI / 3 * i + M_PI_2)) * radius;
+		const float y = std::sinf((float)(M_PI / 3 * i + M_PI_2)) * radius;
+		hexagon.setPoint(i, sf::Vector2f(x, y));
 	}
-	m_hexagon.setPosition(sf::Vector2f((sf::Vector2f)m_renderWindow.getSize() * 0.5f));
-	m_hexagon.setFillColor(sf::Color(0x888888FF));
-	m_hexagon.setOutlineColor(sf::Color::White);
-	m_hexagon.setOutlineThickness(outlineThickness);
+	hexagon.setPosition(sf::Vector2f((sf::Vector2f)m_renderWindow.getSize() * 0.5f));
+	hexagon.setFillColor(sf::Color(0x888888FF));
+	hexagon.setOutlineColor(sf::Color::White);
+	hexagon.setOutlineThickness(outlineThickness);
+	// Create a grid
+	const float sin_60 = std::sinf((float)M_PI / 3);
+	const float cos_60 = 0.5f;
+	const sf::Vector2f x_axis_offset = sf::Vector2f(1, 0) * sin_60 * radius * 2.0f;
+	const sf::Vector2f y_axis_offset = sf::Vector2f(cos_60, sin_60) * sin_60 * radius * 2.0f;
+	for (short x = -3; x <= 3; x++) for (short y = -3; y <= 3; y++)
+	{
+		sf::ConvexShape tile = hexagon;
+		tile.setPosition(hexagon.getPosition() + x_axis_offset * (float)x + y_axis_offset * (float)y);
+		m_hexagons.push_back(std::move(tile));
+	}
 } // Game::Initialize
 
 // Called when a keyboard key is pressed
@@ -147,14 +159,18 @@ void RTSGame::Tick(float _deltaSeconds)
 	}
 
 	// Jiggle the hexagon
-	m_hexagon.rotate(std::sinf(m_totalSeconds) / 4);
+	//m_hexagon.rotate(std::sinf(m_totalSeconds) / 4);
 } // Game::Tick
 
 // Called after every tick to render the scene
 void RTSGame::Render()
 {
 	// Render logic
-	m_renderWindow.draw(m_hexagon);
+	//m_renderWindow.draw(m_hexagon);
+	for (auto tile : m_hexagons)
+	{
+		m_renderWindow.draw(tile);
+	}
 
 	// Draw FPS
 	m_renderWindow.draw(m_txtFPS);
