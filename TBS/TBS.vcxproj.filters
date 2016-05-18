@@ -30,5 +30,8 @@
     <ClInclude Include="inc\rtsgame.hpp">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="inc\localization.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

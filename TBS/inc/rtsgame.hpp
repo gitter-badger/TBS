@@ -22,6 +22,10 @@ public: // Methods
 
 private: // Data members
 	float m_totalSeconds;                      // Seconds passed since startup
+	float FPS;                                 // Frames per second
 	sf::RenderWindow &m_renderWindow;          // The window
 	sf::ConvexShape m_hexagon;                 // A simple hexagon shape
+	sf::Font m_fntArial;                       // Font
+	sf::Text m_txtFPS;						   // Text
+	float m_lastFPSUpdate;                     // The time of when the fps was updated last
 };
