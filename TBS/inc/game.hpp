@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 
 // Pimpl
-class RTSGame;
+class TBSGame;
 
 /**
  * Game Interface
@@ -30,5 +30,5 @@ public: // Methods
 	void Render();
 
 private:
-	RTSGame *m_TBSGame;                        // The game class handling the logic
+	TBSGame *m_TBSGame;                        // The game class handling the logic
 };

@@ -1,9 +1,9 @@
 #include "game.hpp"
-#include "rtsgame.hpp"
+#include "tbsgame.hpp"
 
 // Constructor
 IGame::IGame(sf::RenderWindow &_renderWindow)
-	: m_TBSGame(new RTSGame(_renderWindow))
+	: m_TBSGame(new TBSGame(_renderWindow))
 {
 }
 

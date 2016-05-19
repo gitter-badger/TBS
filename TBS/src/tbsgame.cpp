@@ -1,8 +1,8 @@
 #include "header.hpp"
 #include "localization.hpp"
-#include "rtsgame.hpp"
+#include "tbsgame.hpp"
 
-RTSGame::RTSGame(sf::RenderWindow &_renderWindow)
+TBSGame::TBSGame(sf::RenderWindow &_renderWindow)
 	: m_totalSeconds(0.0f),
 	m_renderWindow(_renderWindow),
 	m_lastFPSUpdate(-3e20f)
@@ -10,7 +10,7 @@ RTSGame::RTSGame(sf::RenderWindow &_renderWindow)
 }
 
 // Initialize the game
-void RTSGame::Initialize()
+void TBSGame::Initialize()
 {
 	// Load font
 	if (!m_fntArial.loadFromFile(ASSET_DIR "Fonts\\arial.ttf"))
@@ -55,7 +55,7 @@ void RTSGame::Initialize()
 
 // Called when a keyboard key is pressed
 // @param _KeyCode	The key that was pressed
-void RTSGame::KeyPressed(sf::Keyboard::Key _keyCode)
+void TBSGame::KeyPressed(sf::Keyboard::Key _keyCode)
 {
 	switch (_keyCode)
 	{
@@ -76,7 +76,7 @@ void RTSGame::KeyPressed(sf::Keyboard::Key _keyCode)
 
 // Called when a keyboard key is released
 // @param _KeyCode	The key that was released
-void RTSGame::KeyReleased(sf::Keyboard::Key _keyCode)
+void TBSGame::KeyReleased(sf::Keyboard::Key _keyCode)
 {
 	switch (_keyCode)
 	{
@@ -91,7 +91,7 @@ void RTSGame::KeyReleased(sf::Keyboard::Key _keyCode)
 // Called when the mouse has moved
 // @param _x        Screen position of the cursor
 // @param _y        Screen position of the cursor
-void RTSGame::MouseMove(int, int)
+void TBSGame::MouseMove(int, int)
 {
 } // Game::MouseMove
 
@@ -99,7 +99,7 @@ void RTSGame::MouseMove(int, int)
 // @param _button   The pressed button
 // @param _x        Screen position of the cursor
 // @param _y        Screen position of the cursor
-void RTSGame::MouseDown(sf::Mouse::Button _button, int, int)
+void TBSGame::MouseDown(sf::Mouse::Button _button, int, int)
 {
 	// Switch on the pressed button
 	switch (_button)
@@ -117,7 +117,7 @@ void RTSGame::MouseDown(sf::Mouse::Button _button, int, int)
 // @param _button   The released button
 // @param _x        Screen position of the cursor
 // @param _y        Screen position of the cursor
-void RTSGame::MouseUp(sf::Mouse::Button _button, int, int)
+void TBSGame::MouseUp(sf::Mouse::Button _button, int, int)
 {
 	// Switch on the released button
 	switch (_button)
@@ -133,14 +133,14 @@ void RTSGame::MouseUp(sf::Mouse::Button _button, int, int)
 
 // Called when the mouse wheel is scrolled
 // @param _delta    The number of ticks
-void RTSGame::MouseWheelScrolled(int)
+void TBSGame::MouseWheelScrolled(int)
 {
 
 } // Game::MouseWheelScrolled
 
 // Called every frame
 // @param _deltaSeconds  The timespan since the last call
-void RTSGame::Tick(float _deltaSeconds)
+void TBSGame::Tick(float _deltaSeconds)
 {
 	// Increase the game time
 	m_totalSeconds += _deltaSeconds;
@@ -158,7 +158,7 @@ void RTSGame::Tick(float _deltaSeconds)
 } // Game::Tick
 
 // Called after every tick to render the scene
-void RTSGame::Render()
+void TBSGame::Render()
 {
 	// Render logic
 	//m_renderWindow.draw(m_hexagon);

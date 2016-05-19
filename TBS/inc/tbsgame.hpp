@@ -3,10 +3,10 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
-class RTSGame
+class TBSGame
 {
 public:
-	RTSGame(sf::RenderWindow &_renderWindow);
+	TBSGame(sf::RenderWindow &_renderWindow);
 
 public: //Input events
 	void KeyPressed(sf::Keyboard::Key);

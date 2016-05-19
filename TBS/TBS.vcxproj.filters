@@ -19,7 +19,7 @@
     <ClCompile Include="src\game.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\rtsgame.cpp">
+    <ClCompile Include="src\tbsgame.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -27,13 +27,13 @@
     <ClInclude Include="inc\game.hpp">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\rtsgame.hpp">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\localization.hpp">
       <Filter>inc</Filter>
     </ClInclude>
     <ClInclude Include="inc\header.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\tbsgame.hpp">
       <Filter>inc</Filter>
     </ClInclude>
   </ItemGroup>
