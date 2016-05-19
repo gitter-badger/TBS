@@ -1,14 +1,14 @@
 #include <SFML/Window.hpp>
 
 #include "game.hpp"
+#include "header.hpp"
 
 int main()
 {
 	// Create a window
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 8; // Enable anti-aliasing
-	const char *title = "TBS Game";
-	sf::RenderWindow window(sf::VideoMode(800, 600), title, 7U, settings);
+	sf::RenderWindow window(sf::VideoMode(800, 600), GAME_NAME, 7U, settings);
 
 	// Create an instance of a game
 	IGame game(window);

@@ -30,5 +30,5 @@ public: // Methods
 	void Render();
 
 private:
-	RTSGame *m_imp;                            // The game class handling the logic
+	RTSGame *m_TBSGame;                        // The game class handling the logic
 };

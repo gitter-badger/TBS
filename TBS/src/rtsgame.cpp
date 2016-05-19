@@ -1,11 +1,6 @@
-#define _USE_MATH_DEFINES
-#include <cmath>
-#include <cstdio>
-#include <utility>
+#include "header.hpp"
 #include "localization.hpp"
 #include "rtsgame.hpp"
-
-#define ASSET_DIR "..\\Assets\\"
 
 RTSGame::RTSGame(sf::RenderWindow &_renderWindow)
 	: m_totalSeconds(0.0f),
