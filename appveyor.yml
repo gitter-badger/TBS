@@ -16,9 +16,11 @@ install:
 - ps: . .\install.ps1
 
 # Build step
-build:
-  project: TBS.sln
+build_script:
+- ps: . .\release-build.ps1
 
 # Generated files
+#TODO: Zip them up
 artifacts:
   - path: TBS\bin\*.exe
+  - path: TBS\Assets\*
