@@ -1,4 +1,6 @@
 #pragma once
 
-// TODO: Build localization framework
+// Use this macro for whenever a string should be localizable
 #define _(x) (x)
+
+// TODO: Build localization framework

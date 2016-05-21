@@ -26,30 +26,16 @@ void TBSGame::Initialize()
 	m_txtFPS.setColor(sf::Color::White);
 	m_txtFPS.setPosition(10.0f, 10.0f);
 
-	// Create single hexagon
-	constexpr float radius = 50.0f;
-	constexpr float outlineThickness = 2.0f;
-	sf::ConvexShape hexagon(6);
-	for (size_t i = 0; i < hexagon.getPointCount(); i++)
-	{
-		const float x = std::cosf((float)(M_PI / 3 * i + M_PI_2)) * radius;
-		const float y = std::sinf((float)(M_PI / 3 * i + M_PI_2)) * radius;
-		hexagon.setPoint(i, sf::Vector2f(x, y));
-	}
-	hexagon.setPosition(sf::Vector2f((sf::Vector2f)m_renderWindow.getSize() * 0.5f));
-	hexagon.setFillColor(sf::Color(0x888888FF));
-	hexagon.setOutlineColor(sf::Color::White);
-	hexagon.setOutlineThickness(outlineThickness);
 	// Create a grid
 	const float sin_60 = std::sinf((float)M_PI / 3);
 	const float cos_60 = 0.5f;
+	constexpr float radius = 50.0f;
 	const sf::Vector2f x_axis_offset = sf::Vector2f(1, 0) * sin_60 * radius * 2.0f;
 	const sf::Vector2f y_axis_offset = sf::Vector2f(cos_60, sin_60) * sin_60 * radius * 2.0f;
+	const auto center = sf::Vector2f(m_renderWindow.getSize().x / 2.0f, m_renderWindow.getSize().y / 2.0f);
 	for (short x = -3; x <= 3; x++) for (short y = -3; y <= 3; y++)
 	{
-		sf::ConvexShape tile = hexagon;
-		tile.setPosition(hexagon.getPosition() + x_axis_offset * (float)x + y_axis_offset * (float)y);
-		m_hexagons.push_back(std::move(tile));
+		m_grid.push_back(Tile(center + x_axis_offset * (float)x + y_axis_offset * (float)y));
 	}
 } // Game::Initialize
 
@@ -162,7 +148,7 @@ void TBSGame::Render()
 {
 	// Render logic
 	//m_renderWindow.draw(m_hexagon);
-	for (auto tile : m_hexagons)
+	for (auto tile : m_grid)
 	{
 		m_renderWindow.draw(tile);
 	}

@@ -22,6 +22,9 @@
     <ClCompile Include="src\tbsgame.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\tile.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\game.hpp">
@@ -34,6 +37,9 @@
       <Filter>inc</Filter>
     </ClInclude>
     <ClInclude Include="inc\tbsgame.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\tile.h">
       <Filter>inc</Filter>
     </ClInclude>
   </ItemGroup>
