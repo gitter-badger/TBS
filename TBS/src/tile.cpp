@@ -20,10 +20,6 @@ Tile::Tile(sf::Vector2f _position)
 	hexagon->setOutlineThickness(outlineThickness);
 }
 
-Tile::~Tile()
-{
-}
-
 void Tile::draw(sf::RenderTarget& target, sf::RenderStates) const
 {
 	target.draw(*m_sprite);
