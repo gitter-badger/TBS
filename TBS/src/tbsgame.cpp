@@ -20,6 +20,13 @@ void TBSGame::Initialize()
 		return;
 	}
 
+	// Bind key actions
+	m_inputListener.BindAction(sf::Keyboard::Escape, [&]() -> bool {
+		// Close the game when pressing Escape
+		m_renderWindow.close();
+		return true;
+	});
+
 	// Set FPS counter location
 	m_txtFPS.setFont(m_fntArial);
 	m_txtFPS.setCharacterSize(11);
@@ -43,35 +50,15 @@ void TBSGame::Initialize()
 // @param _KeyCode	The key that was pressed
 void TBSGame::KeyPressed(sf::Keyboard::Key _keyCode)
 {
-	switch (_keyCode)
-	{
-	case sf::Keyboard::Unknown: // Caps Lock, Scroll Lock, Num Lock
-		std::puts("An unknown key has been pressed!");
-		break;
-
-	case sf::Keyboard::Escape:
-		// Close the program
-		m_renderWindow.close();
-		break;
-
-	default:
-		std::printf("Code of key being pressed: %d.\n", _keyCode);
-		break;
-	} // switch _keyCode
+	// Trigger actions bound to the current key code
+	m_inputListener.ActionPress(_keyCode);
 } // Game::KeyPressed
 
 // Called when a keyboard key is released
 // @param _KeyCode	The key that was released
-void TBSGame::KeyReleased(sf::Keyboard::Key _keyCode)
+void TBSGame::KeyReleased(sf::Keyboard::Key)
 {
-	switch (_keyCode)
-	{
-	case sf::Keyboard::Unknown:
-		// Unknown key has been released
-		break;
-	default:
-		break;
-	} // switch _keyCode
+
 } // Game::KeyReleased
 
 // Called when the mouse has moved

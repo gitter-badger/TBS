@@ -91,6 +91,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\game.cpp" />
+    <ClCompile Include="src\input.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\tbsgame.cpp" />
     <ClCompile Include="src\tile.cpp" />
@@ -98,6 +99,7 @@
   <ItemGroup>
     <ClInclude Include="inc\game.hpp" />
     <ClInclude Include="inc\header.hpp" />
+    <ClInclude Include="inc\input.hpp" />
     <ClInclude Include="inc\localization.hpp" />
     <ClInclude Include="inc\tbsgame.hpp" />
     <ClInclude Include="inc\tile.h" />

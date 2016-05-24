@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include "input.hpp"
 #include "tile.h"
 
 class TBSGame
@@ -26,6 +27,7 @@ private: // Data members
 	float m_totalSeconds;                       // Seconds passed since startup
 	float FPS;                                  // Frames per second
 	sf::RenderWindow &m_renderWindow;           // The window
+	InputListener m_inputListener;              // For input binding
 	std::vector<Tile> m_grid;                   // A simple hexagon shape
 	sf::Font m_fntArial;                        // Font
 	sf::Text m_txtFPS;                          // Text
