@@ -5,6 +5,13 @@
 #include <unordered_map>
 #include <SFML/Window/Keyboard.hpp>
 
+// Input events
+enum InputTriggers : std::uint8_t
+{
+	Press = 1 << 0,
+	Release = 1 << 1,
+};
+
 /**
  * This class allows for binding functions to input events
  */
@@ -14,13 +21,24 @@ public:
 	InputListener() = default;
 
 private:
-	typedef std::list<std::function<bool()>> ActionFuncList;
+	struct Event {
+		std::uint8_t triggers;
+		std::function<bool()> function;
+	};
+	typedef std::list<Event> ActionFuncList;
 	typedef std::unordered_map<sf::Keyboard::Key, ActionFuncList> ActionMap;
 
 public:
-	void BindAction(sf::Keyboard::Key _key, std::function<bool()> _function);
+	void Bind(sf::Keyboard::Key _key, std::uint8_t _triggers, std::function<bool()> _function);
 	void ActionPress(sf::Keyboard::Key _key);
+	void ActionRelease(sf::Keyboard::Key _key);
+
+private:
+	void TriggerEvents(sf::Keyboard::Key _key, std::uint8_t _trigger);
 
 private:
 	ActionMap m_actionMap;
 };
+
+// Global input listener object, definition in input.cpp
+extern InputListener g_inputListener;

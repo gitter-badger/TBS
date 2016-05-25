@@ -9,8 +9,6 @@ IGame::IGame(sf::RenderWindow &_renderWindow)
 
 // Forward function calls to m_TBSGame
 void IGame::Initialize() { m_TBSGame->Initialize(); }
-void IGame::KeyPressed(sf::Keyboard::Key _keyCode) { m_TBSGame->KeyPressed(_keyCode); }
-void IGame::KeyReleased(sf::Keyboard::Key _keyCode) { m_TBSGame->KeyReleased(_keyCode); }
 void IGame::MouseMove(int _x, int _y) { m_TBSGame->MouseMove(_x, _y); }
 void IGame::MouseDown(sf::Mouse::Button _button, int _x, int _y) { m_TBSGame->MouseDown(_button, _x, _y); }
 void IGame::MouseUp(sf::Mouse::Button _button, int _x, int _y) { m_TBSGame->MouseUp(_button, _x, _y); }

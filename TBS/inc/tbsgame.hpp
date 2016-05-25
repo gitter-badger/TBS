@@ -2,7 +2,6 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "input.hpp"
 #include "tile.h"
 
 class TBSGame
@@ -11,8 +10,6 @@ public:
 	TBSGame(sf::RenderWindow &_renderWindow);
 
 public: //Input events
-	void KeyPressed(sf::Keyboard::Key);
-	void KeyReleased(sf::Keyboard::Key);
 	void MouseMove(int _x, int _y);
 	void MouseDown(sf::Mouse::Button _button, int _x, int _y);
 	void MouseUp(sf::Mouse::Button _button, int x, int y);
@@ -27,7 +24,6 @@ private: // Data members
 	float m_totalSeconds;                       // Seconds passed since startup
 	float FPS;                                  // Frames per second
 	sf::RenderWindow &m_renderWindow;           // The window
-	InputListener m_inputListener;              // For input binding
 	std::vector<Tile> m_grid;                   // A simple hexagon shape
 	sf::Font m_fntArial;                        // Font
 	sf::Text m_txtFPS;                          // Text

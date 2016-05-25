@@ -1,6 +1,7 @@
 #include "header.hpp"
 #include "localization.hpp"
 #include "tbsgame.hpp"
+#include "input.hpp"
 
 TBSGame::TBSGame(sf::RenderWindow &_renderWindow)
 	: m_totalSeconds(0.0f),
@@ -21,7 +22,7 @@ void TBSGame::Initialize()
 	}
 
 	// Bind key actions
-	m_inputListener.BindAction(sf::Keyboard::Escape, [&]() -> bool {
+	g_inputListener.Bind(sf::Keyboard::Escape, InputTriggers::Press, [&]() -> bool {
 		// Close the game when pressing Escape
 		m_renderWindow.close();
 		return true;
@@ -45,21 +46,6 @@ void TBSGame::Initialize()
 		m_grid.push_back(Tile(center + x_axis_offset * (float)x + y_axis_offset * (float)y));
 	}
 } // Game::Initialize
-
-// Called when a keyboard key is pressed
-// @param _KeyCode	The key that was pressed
-void TBSGame::KeyPressed(sf::Keyboard::Key _keyCode)
-{
-	// Trigger actions bound to the current key code
-	m_inputListener.ActionPress(_keyCode);
-} // Game::KeyPressed
-
-// Called when a keyboard key is released
-// @param _KeyCode	The key that was released
-void TBSGame::KeyReleased(sf::Keyboard::Key)
-{
-
-} // Game::KeyReleased
 
 // Called when the mouse has moved
 // @param _x        Screen position of the cursor

@@ -2,6 +2,7 @@
 
 #include "game.hpp"
 #include "header.hpp"
+#include "input.hpp"
 
 int main()
 {
@@ -36,11 +37,12 @@ int main()
 				break;
 
 			case sf::Event::KeyPressed:
-				game.KeyPressed(event.key.code);
+				// Trigger actions bound to the current key code
+				g_inputListener.ActionPress(event.key.code);
 				break;
 
 			case sf::Event::KeyReleased:
-				game.KeyReleased(event.key.code);
+				g_inputListener.ActionRelease(event.key.code);
 				break;
 
 			case sf::Event::MouseMoved:
