@@ -1,5 +1,7 @@
 # Turn Based Strategy Game
 
+[![Join the chat at https://gitter.im/Broxzier/TBS](https://badges.gitter.im/Broxzier/TBS.svg)](https://gitter.im/Broxzier/TBS?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This is a work-in-progress turn based strategy game.
 
 ## Compiling the Project
