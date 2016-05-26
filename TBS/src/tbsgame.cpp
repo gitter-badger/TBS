@@ -22,7 +22,7 @@ void TBSGame::Initialize()
 	}
 
 	// Bind key actions
-	g_inputListener.Bind(sf::Keyboard::Escape, InputTriggers::Press, [&]() -> bool {
+	InputListener::Bind(sf::Keyboard::Escape, InputTriggers::Press, [&]() -> bool {
 		// Close the game when pressing Escape
 		m_renderWindow.close();
 		return true;
