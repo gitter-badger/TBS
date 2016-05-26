@@ -38,11 +38,11 @@ int main()
 
 			case sf::Event::KeyPressed:
 				// Trigger actions bound to the current key code
-				g_inputListener.ActionPress(event.key.code);
+				InputListener::ActionPress(event.key.code);
 				break;
 
 			case sf::Event::KeyReleased:
-				g_inputListener.ActionRelease(event.key.code);
+				InputListener::ActionRelease(event.key.code);
 				break;
 
 			case sf::Event::MouseMoved:
